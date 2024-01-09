@@ -1,8 +1,11 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Link } from "@tanstack/react-router";
-import { fetchPostsOptions } from "../../posts-related";
+import { Link, RouteApi } from "@tanstack/react-router";
+
+const api = new RouteApi({ id: "/posts" });
 
 export const component = function PostsComponent() {
+	const { fetchPostsOptions } = api.useRouteContext();
+
 	const query = useSuspenseQuery(fetchPostsOptions);
 	const posts = query.data;
 
