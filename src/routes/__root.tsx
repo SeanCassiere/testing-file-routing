@@ -32,9 +32,9 @@ function RootComponent() {
 				<Link
 					to='/posts/$postId'
 					activeProps={{ className: "font-bold" }}
-					params={{ postId: "123" }}
+					params={{ postId: "1" }}
 				>
-					Post 123
+					Post 1
 				</Link>
 			</div>
 			<hr />
