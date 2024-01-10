@@ -2,7 +2,7 @@ import { lazyFn, lazyRouteComponent } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as PostsRouteImport } from './routes/posts/route'
-import { Route as IndexImport } from './routes/index'
+import { Route as IndexRouteImport } from './routes/index.route'
 import { Route as PostsPostIdRouteImport } from './routes/posts_.$postId/route'
 
 const PostsRouteRoute = PostsRouteImport.update({
@@ -19,10 +19,15 @@ const PostsRouteRoute = PostsRouteImport.update({
     ),
   })
 
-const IndexRoute = IndexImport.update({
+const IndexRouteRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
-} as any)
+} as any).update({
+  component: lazyRouteComponent(
+    () => import('./routes/index.component'),
+    'component',
+  ),
+})
 
 const PostsPostIdRouteRoute = PostsPostIdRouteImport.update({
   path: '/posts/$postId',
@@ -40,7 +45,7 @@ const PostsPostIdRouteRoute = PostsPostIdRouteImport.update({
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
-      preLoaderRoute: typeof IndexImport
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRoute
     }
     '/posts': {
@@ -54,7 +59,7 @@ declare module '@tanstack/react-router' {
   }
 }
 export const routeTree = rootRoute.addChildren([
-  IndexRoute,
+  IndexRouteRoute,
   PostsRouteRoute,
   PostsPostIdRouteRoute,
 ])
