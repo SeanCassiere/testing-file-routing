@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { RouteApi } from "@tanstack/react-router";
 
-const api = new RouteApi({ id: "/posts/$postId" });
+const api = new RouteApi({ id: "/posts_/$postId" });
 
 export const component = function PostIdComponent() {
 	const { postId } = api.useParams();
