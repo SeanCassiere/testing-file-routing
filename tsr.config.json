@@ -1,8 +1,5 @@
 {
-  "rootDirectory": ".",
-  "routesDirectory": "./src/routes",
-  "generatedRouteTree": "./src/route-tree.gen.ts",
-  "future": {
-    "unstable_codeSplitting": true
-  }
+	"rootDirectory": ".",
+	"routesDirectory": "./src/routes",
+	"generatedRouteTree": "./src/route-tree.gen.ts"
 }
