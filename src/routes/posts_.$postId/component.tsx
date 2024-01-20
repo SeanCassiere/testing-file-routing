@@ -7,8 +7,6 @@ export const component = function PostIdComponent() {
 	const { postId } = api.useParams();
 	const { fetchPostOptions } = api.useRouteContext();
 
-	console.log("/posts/$postId postId:", postId);
-
 	const query = useSuspenseQuery(fetchPostOptions);
 	const post = query.data;
 
@@ -16,7 +14,7 @@ export const component = function PostIdComponent() {
 		<div className='p-2'>
 			<h3 className='mb-4'>You are at /posts/$postId</h3>
 			<p>Post ID: {postId}</p>
-			<div>
+			<div className='max-w-full overflow-x-auto'>
 				<code>
 					<pre>{JSON.stringify(post, null, 2)}</pre>
 				</code>

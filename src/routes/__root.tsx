@@ -23,7 +23,7 @@ function RootComponent() {
 					Home
 				</Link>
 				<Link
-					to={"/posts"}
+					to='/posts'
 					activeProps={{ className: "font-bold" }}
 					activeOptions={{ exact: true }}
 				>
@@ -35,6 +35,20 @@ function RootComponent() {
 					params={{ postId: "1" }}
 				>
 					Post 1
+				</Link>
+				<Link
+					to='/blog'
+					activeProps={{ className: "font-bold" }}
+					activeOptions={{ exact: true }}
+				>
+					Blog
+				</Link>
+				<Link
+					to='/blog/$blogId'
+					activeProps={{ className: "font-bold" }}
+					params={{ blogId: "1" }}
+				>
+					Blog 1
 				</Link>
 			</div>
 			<hr />

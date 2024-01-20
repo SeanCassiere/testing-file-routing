@@ -20,6 +20,10 @@ export const fetchPostsOptions = queryOptions({
 	queryKey: ["posts", "all"],
 	queryFn: fetchPosts,
 });
+export const fetchBlogsOptions = queryOptions({
+	queryKey: ["blogs", "all"],
+	queryFn: fetchPosts,
+});
 
 const fetchPost = async (postId: string) => {
 	const res = await fetch(
@@ -34,4 +38,10 @@ export const createFetchPostOptions = (postId: string) =>
 	queryOptions({
 		queryKey: ["posts", postId],
 		queryFn: () => fetchPost(postId),
+	});
+
+export const createFetchBlogPostOptions = (blogId: string) =>
+	queryOptions({
+		queryKey: ["blogs", blogId],
+		queryFn: () => fetchPost(blogId),
 	});
