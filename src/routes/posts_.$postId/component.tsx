@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { RouteApi } from "@tanstack/react-router";
+import { Link, RouteApi } from "@tanstack/react-router";
 
 const api = new RouteApi({ id: "/posts/$postId" });
 
@@ -14,6 +14,11 @@ export const component = function PostIdComponent() {
 		<div className='p-2'>
 			<h3 className='mb-4'>You are at /posts/$postId</h3>
 			<p>Post ID: {postId}</p>
+			<p>
+				<Link to='/posts/$postId/deep' params={{ postId }}>
+					Deep route for {postId}
+				</Link>
+			</p>
 			<div className='max-w-full overflow-x-auto'>
 				<code>
 					<pre>{JSON.stringify(post, null, 2)}</pre>
