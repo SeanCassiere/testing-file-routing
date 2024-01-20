@@ -32,6 +32,7 @@ function RootComponent() {
 				<Link
 					to='/posts/$postId'
 					activeProps={{ className: "font-bold" }}
+					activeOptions={{ exact: true }}
 					params={{ postId: "1" }}
 				>
 					Post 1
@@ -39,6 +40,7 @@ function RootComponent() {
 				<Link
 					to='/posts/$postId/deep'
 					activeProps={{ className: "font-bold" }}
+					activeOptions={{ exact: true }}
 					params={{ postId: "1" }}
 				>
 					Post 1 Deep

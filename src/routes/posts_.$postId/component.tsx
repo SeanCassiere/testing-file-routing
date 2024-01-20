@@ -14,9 +14,9 @@ export const component = function PostIdComponent() {
 		<div className='p-2'>
 			<h3 className='mb-4'>You are at /posts/$postId</h3>
 			<p>Post ID: {postId}</p>
-			<p>
+			<p className='py-2'>
 				<Link to='/posts/$postId/deep' params={{ postId }}>
-					Deep route for {postId}
+					Go to the deep route for post {postId}.
 				</Link>
 			</p>
 			<div className='max-w-full overflow-x-auto'>
