@@ -15,7 +15,11 @@ export const component = function PostIdComponent() {
 			<h3 className='mb-4'>You are at /posts/$postId</h3>
 			<p>Post ID: {postId}</p>
 			<p className='py-2'>
-				<Link to='/posts/$postId/deep' params={{ postId }}>
+				<Link
+					to='/posts/$postId/deep'
+					params={{ postId }}
+					className='underline'
+				>
 					Go to the deep route for post {postId}.
 				</Link>
 			</p>
